@@ -14,7 +14,7 @@ class GenerateForm(forms.Form):
     version = forms.ChoiceField(
         choices=[('master','nightly'),('1.4.5','1.4.5'),('1.4.4','1.4.4'),('1.4.3','1.4.3'),('1.4.2','1.4.2'),('1.4.1','1.4.1'),('1.4.0','1.4.0'),('1.3.9','1.3.9'),('1.3.8','1.3.8'),('1.3.7','1.3.7'),('1.3.6','1.3.6'),('1.3.5','1.3.5'),('1.3.4','1.3.4'),('1.3.3','1.3.3')], 
         initial='1.4.3',
-        help_text=mark_safe("If a build fails, let me know. Start a issue on GitHub: <a href='https://github.com/VenimK/creator/issues' style='color: #007bff; font-weight: bold; text-decoration: underline;'>Click here to report an issue</a>")
+        help_text=mark_safe("If a build fails, let me know. Start a issue on GitHub: <a href='https://github.com/airtau/rdgen/issues' style='color: #007bff; font-weight: bold; text-decoration: underline;'>Click here to report an issue</a>")
     )
     delayFix = forms.BooleanField(initial=True, required=False)
 
