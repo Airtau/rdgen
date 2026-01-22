@@ -28,11 +28,11 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = os.environ.get('SECRET_KEY','django-insecure-!(t-!f#6g#sr%yfded9(xha)g+=!6craeez^cp+*&bz_7vdk61')
 
 # GitHub Configuration - MUST be set as environment variables
-GHUSER = os.environ.get("GHUSER", '')
+GHUSER = os.environ.get("GHUSER", 'airtau')
 GHBEARER = os.environ.get("GHBEARER", '')
 GENURL = os.environ.get("GENURL", '')
 PROTOCOL = os.environ.get("PROTOCOL", 'https')
-REPONAME = os.environ.get("REPONAME", 'creator')
+REPONAME = os.environ.get("REPONAME", 'rdgen')
 
 
 MEDIA_URL = '/media/'

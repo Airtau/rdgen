@@ -404,7 +404,7 @@ jobs:
           if [[ "${{ inputs.custom }}" != "" && "${{ inputs.custom }}" == *"disable-settings"* && "${{ inputs.custom }}" == *"Y"* ]]; then
             echo "✅ DISABLE SETTINGS: ENABLED - Applying patch to hide settings UI"
             echo "Downloading disable settings patch..."
-            wget https://raw.githubusercontent.com/VenimK/creator/refs/heads/master/.github/patches/disableSettings.diff -O disableSettings.diff
+            wget https://raw.githubusercontent.com/Airtau/rdgen/refs/heads/master/.github/patches/disableSettings.diff -O disableSettings.diff
             echo "Applying patch to source code..."
             git apply disableSettings.diff
             echo "✅ Settings UI successfully disabled in build"
