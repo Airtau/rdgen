@@ -286,10 +286,10 @@ jobs:
       - name: allow custom.txt
         continue-on-error: true
         run: |
-          Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/rdgen/refs/heads/master/.github/patches/allowCustom.py -OutFile allowCustom.py
+          Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/creator/refs/heads/master/.github/patches/allowCustom.py -OutFile allowCustom.py
           git apply allowCustom.py
           # Remove Setup Server Tip
-          Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/rdgen/refs/heads/master/.github/patches/removeSetupServerTip.diff -OutFile removeSetupServerTip.diff
+          Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/creator/refs/heads/master/.github/patches/removeSetupServerTip.diff -OutFile removeSetupServerTip.diff
           git apply removeSetupServerTip.diff
 
 
@@ -440,14 +440,14 @@ jobs:
         continue-on-error: true
         if: fromJson(inputs.extras).cycleMonitor == 'true'
         run: |
-          Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/rdgen/refs/heads/master/.github/patches/cycle_monitor.diff -OutFile cycle_monitor.diff
+          Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/creator/refs/heads/master/.github/patches/cycle_monitor.diff -OutFile cycle_monitor.diff
           git apply cycle_monitor.diff
 
       - name: use X for offline display instead of orange circle
         continue-on-error: true
         if: fromJson(inputs.extras).xOffline == 'true'
         run: |
-          Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/rdgen/refs/heads/master/.github/patches/xoffline.diff -OutFile xoffline.diff
+          Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/creator/refs/heads/master/.github/patches/xoffline.diff -OutFile xoffline.diff
           git apply xoffline.diff
 
       - name: hide-cm
@@ -513,7 +513,7 @@ jobs:
             if ($decodedConfig -match '"disable-settings"\s*:\s*"Y"') {
               Write-Host "✅ GLOBAL DISABLE SETTINGS: ENABLED - Applying patch to hide ALL settings"
               Write-Host "Downloading disable settings patch..."
-              Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/rdgen/refs/heads/master/.github/patches/disableSettings.diff -OutFile disableSettings.diff
+              Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/creator/refs/heads/master/.github/patches/disableSettings.diff -OutFile disableSettings.diff
               Write-Host "Applying patch to source code..."
               git apply disableSettings.diff
               Write-Host "✅ All settings UI successfully disabled in build"
@@ -522,7 +522,7 @@ jobs:
               Write-Host "Settings tabs to hide:"
               $decodedConfig | Select-String -Pattern '"hide-(general|security|network|display|account|plugin|remote-printer)-settings"\s*:\s*"Y"' -AllMatches | ForEach-Object { $_.Matches.Value }
               Write-Host "Downloading hide settings script..."
-              Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/rdgen/refs/heads/master/.github/scripts/hide_granular_settings.sh -OutFile hide_granular_settings.sh
+              Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/creator/refs/heads/master/.github/scripts/hide_granular_settings.sh -OutFile hide_granular_settings.sh
               Write-Host "Running script to permanently hide selected settings tabs..."
               bash hide_granular_settings.sh
               Write-Host "✅ Settings tabs permanently hidden in source code"
@@ -534,7 +534,7 @@ jobs:
               Write-Host "Sub-sections to hide within Network tab:"
               $decodedConfig | Select-String -Pattern '"hide-(server|proxy|websocket)-settings"\s*:\s*"Y"' -AllMatches | ForEach-Object { $_.Matches.Value }
               Write-Host "Downloading network sub-sections hiding script..."
-              Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/rdgen/refs/heads/master/.github/scripts/hide_network_subsections.sh -OutFile hide_network_subsections.sh
+              Invoke-WebRequest -Uri https://raw.githubusercontent.com/Airtau/creator/refs/heads/master/.github/scripts/hide_network_subsections.sh -OutFile hide_network_subsections.sh
               Write-Host "Running script to hide selected network sub-sections..."
               $env:DECODED_CONFIG = $decodedConfig
               bash hide_network_subsections.sh

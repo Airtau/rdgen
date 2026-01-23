@@ -32,7 +32,7 @@ GHUSER = os.environ.get("GHUSER", 'airtau')
 GHBEARER = os.environ.get("GHBEARER", '')
 GENURL = os.environ.get("GENURL", '')
 PROTOCOL = os.environ.get("PROTOCOL", 'https')
-REPONAME = os.environ.get("REPONAME", 'rdgen')
+REPONAME = os.environ.get("REPONAME", 'creator')
 
 
 MEDIA_URL = '/media/'
